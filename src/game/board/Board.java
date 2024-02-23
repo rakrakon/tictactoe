@@ -3,8 +3,9 @@ package game.board;
 import java.util.Arrays;
 
 
-public class Board {
+public class Board { //TODO: add isFull, isDiagonal, isRow...
     private char[][] board = new char[3][3];
+
 
 
     public Board(){
