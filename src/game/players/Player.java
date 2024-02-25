@@ -18,6 +18,5 @@ public class Player implements PlayerInterface{
         char symbol = playerType.getSymbolChar();
         System.out.println("Please enter the coordinates (row and column) to place your mark.");
         System.out.println("Coordinates should be in the range 0-2, 0-2, starting from the top left corner.");
-        GameInputs.getINSTANCE().next();
     }
 }
