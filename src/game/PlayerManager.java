@@ -6,9 +6,9 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class PlayerManager {
+public class PlayerManager { //TODO: maybe this can be merged with the TurnManger
     private static PlayerManager INSTANCE;
-    private GameCursor selectingCursor; //TODO: create playerSelectingCursor
+    private GameCursor selectingCursor; //TODO: create playerSelectingCursor and refactor class
     private String selectedPlayerType;
 
     private PlayerManager(){
