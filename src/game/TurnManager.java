@@ -1,5 +1,6 @@
 package game;
 
+import game.board.Symbol;
 import game.players.PlayerInterface;
 
 public class TurnManager {
@@ -25,6 +26,10 @@ public class TurnManager {
         printTurn(); // Print whose turn it is
         currentPlayer.playTurn(); // Let the current player play their turn
         switchPlayer(); // Switch to the next player
+    }
+
+    public Symbol getCurrentPlayerSymbol(){
+        return currentPlayer == playerOne ? Symbol.X : Symbol.O;
     }
 
     private void switchPlayer() {
