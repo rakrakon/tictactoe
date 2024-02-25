@@ -3,25 +3,26 @@ package game.cursor;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Optional;
 
-public class Cursor { //TODO: needs to be refactored into an interface and make this class the game implementation also create a playerSelection implementation
-    private static Cursor INSTANCE;
+public class GameCursor implements CursorInterface{ //TODO: needs to be refactored into an interface and make this class the game implementation also create a playerSelection implementation
+    private static GameCursor INSTANCE;
     private int row;
     private int col;
     private final int numRows;
     private final int numCols;
     private String boardString = "";
 
-    private Cursor(int numRows, int numCols) {
+    private GameCursor(int numRows, int numCols) {
         this.numRows = numRows;
         this.numCols = numCols;
         row = 0;
         col = 0;
     }
 
-    public static Cursor getINSTANCE(int numRows, int numCols) {
+    public static GameCursor getINSTANCE(int numRows, int numCols) {
         if (INSTANCE == null){
-            INSTANCE = new Cursor(numRows, numCols);
+            INSTANCE = new GameCursor(numRows, numCols);
         }
         return INSTANCE;
     }
@@ -39,28 +40,34 @@ public class Cursor { //TODO: needs to be refactored into an interface and make 
         col = Math.max(0, Math.min(numCols - 1, col + dx));
     }
 
-    public String getCursorPointedValue
+    /**
+     * @return The value the the cursor is currently pointing on
+     */
+    public char getCursorPointedValue(){
+        StringBuilder builder = new StringBuilder(boardString);
+        return builder.charAt(builder.indexOf(">") + 1);
+    }
 
-    public void handleInput(String boardString) throws IOException {
+    public Optional<Character> handleInput(String boardString) throws IOException {
         this.boardString = boardString;
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         char input = (char) reader.read();
         switch (input) {
             case 'w':
                 move(0, -1); // up
-                break;
+                return Optional.empty();
             case 's':
                 move(0, 1);  // down
-                break;
+                return Optional.empty();
             case 'd':
                 move(1, 0);  // right
-                break;
+                return Optional.empty();
             case 'a':
                 move(-1, 0); // left
-                break;
+                return Optional.empty();
             case '\n':
-
-                break;
+                return Optional.of(getCursorPointedValue());
         }
+        return Optional.empty();
     }
 }
