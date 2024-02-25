@@ -3,9 +3,8 @@ package game;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.function.Function;
 
-public class Cursor {
+public class Cursor { //TODO: needs to be refactored into an interface and make this class the game implementation also create a playerSelection implementation
     private static Cursor INSTANCE;
     private int row;
     private int col;
