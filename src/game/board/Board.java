@@ -73,7 +73,7 @@ public class Board {
                 (board[0][2] == symbol && board[1][1] == symbol && board[2][0] == symbol);
     }
 
-    public void printBdccdaoard(int cursorRow, int cursorCol) {
+    public void printBoard(int cursorRow, int cursorCol) {
         StringBuilder boardString = new StringBuilder("----------------\n");
         for (int i = 0; i < board.length; i++) {
             boardString.append('|');
