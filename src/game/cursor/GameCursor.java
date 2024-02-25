@@ -1,4 +1,4 @@
-package game;
+package game.cursor;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -10,6 +10,7 @@ public class Cursor { //TODO: needs to be refactored into an interface and make 
     private int col;
     private final int numRows;
     private final int numCols;
+    private String boardString = "";
 
     private Cursor(int numRows, int numCols) {
         this.numRows = numRows;
@@ -38,7 +39,10 @@ public class Cursor { //TODO: needs to be refactored into an interface and make 
         col = Math.max(0, Math.min(numCols - 1, col + dx));
     }
 
-    public void handleInput() throws IOException {
+    public String getCursorPointedValue
+
+    public void handleInput(String boardString) throws IOException {
+        this.boardString = boardString;
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         char input = (char) reader.read();
         switch (input) {
@@ -53,6 +57,9 @@ public class Cursor { //TODO: needs to be refactored into an interface and make 
                 break;
             case 'a':
                 move(-1, 0); // left
+                break;
+            case '\n':
+
                 break;
         }
     }
