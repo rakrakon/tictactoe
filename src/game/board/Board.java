@@ -73,7 +73,7 @@ public class Board {
                 (board[0][2] == symbol && board[1][1] == symbol && board[2][0] == symbol);
     }
 
-    public void printBoard(int cursorRow, int cursorCol) {
+    public String getBoard(int cursorRow, int cursorCol) {
         StringBuilder boardString = new StringBuilder("----------------\n");
         for (int i = 0; i < board.length; i++) {
             boardString.append('|');
@@ -91,6 +91,6 @@ public class Board {
             }
         }
         boardString.append("----------------\n");
-        System.out.println(boardString);
+        return boardString.toString();
     }
 }
