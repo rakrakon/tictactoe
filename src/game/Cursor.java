@@ -3,18 +3,27 @@ package game;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.function.Function;
 
 public class Cursor {
+    private static Cursor INSTANCE;
     private int row;
     private int col;
     private final int numRows;
     private final int numCols;
 
-    public Cursor(int numRows, int numCols) {
+    private Cursor(int numRows, int numCols) {
         this.numRows = numRows;
         this.numCols = numCols;
         row = 0;
         col = 0;
+    }
+
+    public static Cursor getINSTANCE(int numRows, int numCols) {
+        if (INSTANCE == null){
+            INSTANCE = new Cursor(numRows, numCols);
+        }
+        return INSTANCE;
     }
 
     public int getRow() {

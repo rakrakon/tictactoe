@@ -1,34 +1,46 @@
 package game;
 
 import game.board.Board;
+import game.board.Symbol;
 import game.players.PlayerInterface;
 
 import java.io.IOException;
 
 public class Game {
-    private final Board board = new Board();
-    private final Cursor cursor = new Cursor(3, 3);
+    private final Board board;
+    private final Cursor gameCursor;
     private PlayerInterface playerOne;
     private PlayerInterface playerTwo;
+
+    public Game(){
+        board = Board.getINSTANCE();
+        gameCursor = Cursor.getINSTANCE(3, 3);
+    }
+
+    public void gameInit(){
+
+    }
 
     public void resetGame(){
 
     }
 
-    private boolean isGameOver(){ //TODO: implement logic
-        return false;
+    private boolean isGameOver(){
+        return board.isFull() || board.getWinner() != Symbol.EMPTY;
     }
 
     private void printGame(){
-        board.printBoard(cursor.getRow(), cursor.getCol()); //TODO: call turn manager printTurn function
+        board.printBoard(gameCursor.getRow(), gameCursor.getCol()); //TODO: call turn manager printTurn function
     }
 
-    void start() throws IOException {
+    public void start() throws IOException {
+        resetGame();
         System.out.println();
         while (!isGameOver()) {
+            printGame(); //TODO: make enter place the symbol
 
-
-            cursor.handleInput(); //Read keyboard input
+            gameCursor.handleInput(); //Read keyboard input
         }
+        System.out.println("Congratulations " + board.getWinner().getSymbolChar() + " won the game!!");
     }
 }
