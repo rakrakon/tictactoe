@@ -53,7 +53,7 @@ public class PlayerManager {
 
         // Loop until Enter key is pressed
         while (true) {
-            selectingCursor.handleInput();
+            selectingCursor.handleInput(); //TODO: add enter key logic
         }
     }
 }
