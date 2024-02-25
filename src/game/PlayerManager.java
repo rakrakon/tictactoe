@@ -1,16 +1,18 @@
 package game;
 
+import game.cursor.GameCursor;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class PlayerManager {
     private static PlayerManager INSTANCE;
-    private Cursor selectingCursor;
+    private GameCursor selectingCursor; //TODO: create playerSelectingCursor
     private String selectedPlayerType;
 
     private PlayerManager(){
-        selectingCursor = Cursor.getINSTANCE(2, 1); // Adjusting the cursor dimensions to match the selection menu
+        selectingCursor = GameCursor.getINSTANCE(2, 1); // Adjusting the cursor dimensions to match the selection menu
         selectedPlayerType = ""; // Initializing selectedPlayerType
     }
 
@@ -23,7 +25,7 @@ public class PlayerManager {
 
     public void reset() {
         // Reset the cursor position to the initial position (typically, top-left corner)
-        selectingCursor = Cursor.getINSTANCE(1, 2);
+        selectingCursor = GameCursor.getINSTANCE(1, 2);
 
         // Clear the selected player type
         selectedPlayerType = "";
@@ -53,7 +55,7 @@ public class PlayerManager {
 
         // Loop until Enter key is pressed
         while (true) {
-            selectingCursor.handleInput(); //TODO: add enter key logic
+//            selectingCursor.handleInput(); //TODO: add enter key logic
         }
     }
 }
