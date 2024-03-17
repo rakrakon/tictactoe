@@ -5,24 +5,24 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Optional;
 
-public class GameCursor implements CursorInterface{ //TODO: needs to be refactored into an interface and make this class the game implementation also create a playerSelection implementation
-    private static GameCursor INSTANCE;
+public class Cursor { //TODO: needs to be refactored into an interface and make this class the game implementation also create a playerSelection implementation
+    private static Cursor INSTANCE;
     private int row;
     private int col;
     private final int numRows;
     private final int numCols;
     private String boardString = "";
 
-    private GameCursor(int numRows, int numCols) {
+    private Cursor(int numRows, int numCols) {
         this.numRows = numRows;
         this.numCols = numCols;
         row = 0;
         col = 0;
     }
 
-    public static GameCursor getINSTANCE(int numRows, int numCols) {
+    public static Cursor getINSTANCE(int numRows, int numCols) {
         if (INSTANCE == null){
-            INSTANCE = new GameCursor(numRows, numCols);
+            INSTANCE = new Cursor(numRows, numCols);
         }
         return INSTANCE;
     }
@@ -52,22 +52,29 @@ public class GameCursor implements CursorInterface{ //TODO: needs to be refactor
         this.boardString = boardString;
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         char input = (char) reader.read();
-        switch (input) {
-            case 'w':
+        // up
+        // down
+        // right
+        // left
+        return switch (input) {
+            case 'w' -> {
                 move(0, -1); // up
-                return Optional.empty();
-            case 's':
+                yield Optional.empty();
+            }
+            case 's' -> {
                 move(0, 1);  // down
-                return Optional.empty();
-            case 'd':
+                yield Optional.empty();
+            }
+            case 'd' -> {
                 move(1, 0);  // right
-                return Optional.empty();
-            case 'a':
+                yield Optional.empty();
+            }
+            case 'a' -> {
                 move(-1, 0); // left
-                return Optional.empty();
-            case '\n':
-                return Optional.of(getCursorPointedValue());
-        }
-        return Optional.empty();
+                yield Optional.empty();
+            }
+            case '\n' -> Optional.of(getCursorPointedValue());
+            default -> Optional.empty();
+        };
     }
 }
