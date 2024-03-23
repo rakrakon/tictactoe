@@ -79,7 +79,7 @@ public class Game {
         }
         printGame();
         Symbol winner = board.getWinner();
-        if (winner == Symbol.EMPTY){
+        if (winner == Symbol.EMPTY) {
             System.out.println("No one won it is a tie");
         }
         System.out.println("Congratulations " + winner.getSymbolChar() + " won the game!!");
