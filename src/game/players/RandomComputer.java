@@ -4,7 +4,6 @@ import game.board.Board;
 import game.board.BoardCoordinates;
 import game.board.Symbol;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -19,7 +18,7 @@ public class RandomComputer implements PlayerInterface{
     }
 
     @Override
-    public void playTurn() throws IOException {
+    public void playTurn() {
         Board board = Board.getINSTANCE();
         Symbol[][] playingBoard = board.getBoard();
         // List to store array locations of empty symbols using Stream API
