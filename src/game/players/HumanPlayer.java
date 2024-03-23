@@ -7,11 +7,11 @@ import game.cursor.Cursor;
 
 import java.io.IOException;
 
-public class Player implements PlayerInterface {
-    private final Symbol playerType;
+public class HumanPlayer implements PlayerInterface {
+    private final Symbol playerSymbol;
 
-    public Player(Symbol playerType) {
-        this.playerType = playerType;
+    public HumanPlayer(Symbol playerSymbol) {
+        this.playerSymbol = playerSymbol;
     }
 
     @Override
@@ -23,7 +23,7 @@ public class Player implements PlayerInterface {
             var cursorValue = gameCursor.handleInput(board.getBoard(gameCursor.getRow(), gameCursor.getCol())); //Read keyboard input
             if (cursorValue.isPresent()) {
                 if (cursorValue.get().equals(Symbol.EMPTY.getSymbolChar())) {
-                    board.setBoardSymbol(new BoardCoordinates(gameCursor.getRow(), gameCursor.getCol()), playerType); //Place correct symbol on the board
+                    board.setSymbol(new BoardCoordinates(gameCursor.getRow(), gameCursor.getCol()), playerSymbol); //Place correct symbol on the board
                     return;
                 }
                 System.out.println("There is already a symbol there try again:");
@@ -37,6 +37,6 @@ public class Player implements PlayerInterface {
 
     @Override
     public Symbol getPlayerSymbol() {
-        return playerType;
+        return playerSymbol;
     }
 }
