@@ -43,11 +43,11 @@ public class Game {
         start();
     }
 
-    private boolean isGameOver(){
+    private boolean isGameOver() {
         return board.isFull() || board.getWinner() != Symbol.EMPTY;
     }
 
-    private void printGame(){
+    private void printGame() {
         System.out.println(board.getBoard(gameCursor.getRow(), gameCursor.getCol()));
     }
 
