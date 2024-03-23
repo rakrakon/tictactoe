@@ -38,6 +38,9 @@ public class Game {
         gameCursor = Cursor.getINSTANCE2(3, 3);
     }
 
+    public void newGame() throws IOException {
+        init();
+        start();
     }
 
     private boolean isGameOver(){
