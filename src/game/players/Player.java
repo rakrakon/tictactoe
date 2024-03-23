@@ -7,13 +7,10 @@ import game.cursor.Cursor;
 
 import java.io.IOException;
 
-public class Player implements PlayerInterface{
+public class Player implements PlayerInterface {
     private final Symbol playerType;
 
-    public Player(Symbol playerType){
-        if(playerType == Symbol.EMPTY){
-            throw new RuntimeException("Player can't be of type: ?");
-        }
+    public Player(Symbol playerType) {
         this.playerType = playerType;
     }
 
