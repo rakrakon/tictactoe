@@ -11,7 +11,7 @@ import java.util.Random;
 import java.util.stream.IntStream;
 
 public class RandomComputer implements PlayerInterface{
-    private Random random = new Random();
+    private final Random random = new Random();
     private final Symbol playerType;
 
     public RandomComputer(Symbol playerType){
