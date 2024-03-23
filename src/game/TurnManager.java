@@ -28,10 +28,6 @@ public class TurnManager {
         switchPlayer(); // Switch to the next player
     }
 
-    public Symbol getCurrentPlayerSymbol(){
-        return currentPlayer == playerOne ? Symbol.X : Symbol.O;
-    }
-
     private void switchPlayer() {
         if (currentPlayer == playerOne) {
             currentPlayer = playerTwo;
