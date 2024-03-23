@@ -75,6 +75,17 @@ public class Board {
                 (board[0][2] == symbol && board[1][1] == symbol && board[2][0] == symbol);
     }
 
+    private boolean isDraw(){
+        for (Symbol[] row : board) {
+            for (Symbol symbol : row) {
+                if (symbol == Symbol.EMPTY) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
     public String getBoard(int cursorRow, int cursorCol) {
         StringBuilder boardString = new StringBuilder("----------------\n");
         for (int i = 0; i < board.length; i++) {
