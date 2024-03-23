@@ -56,8 +56,10 @@ public class Board {
             return Symbol.X;
         if (isDiagonal(Symbol.O))
             return Symbol.O;
-
-        return Symbol.EMPTY;
+        if (isDraw()){
+            return Symbol.EMPTY;
+        }
+        return null;
     }
 
     private boolean isRow(int row, Symbol symbol) {
