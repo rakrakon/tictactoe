@@ -1,30 +1,30 @@
 package game;
 
-import game.board.Symbol;
 import game.cursor.Cursor;
 import game.players.Player;
-import game.players.PlayerInterface;
+import game.players.RandomComputer;
 
 import java.io.IOException;
 
 public class PlayerSelectionMenu {
     private static PlayerSelectionMenu INSTANCE;
     private final Cursor cursor;
-    private final String[][] selectionMenu; //TODO:
+    private final String[][] selectionMenu;
 
-    private PlayerSelectionMenu(){
-        selectionMenu = new String[][]{{"Human Player"}, {"Random Computer"}};
-        cursor = Cursor.getINSTANCE(1, 2);
+
+    private PlayerSelectionMenu() {
+        selectionMenu = new String[][]{{Player.getName()}, {RandomComputer.getName()}};
+        cursor = Cursor.getINSTANCE1(2, 1);
     }
 
     public static PlayerSelectionMenu getINSTANCE() {
-        if (INSTANCE == null){
+        if (INSTANCE == null) {
             INSTANCE = new PlayerSelectionMenu();
         }
         return INSTANCE;
     }
 
-    private String getSelectionMenu(int cursorRow, int cursorCol){
+    private String getSelectionMenu(int cursorRow, int cursorCol) {
         StringBuilder selectionMenuString = new StringBuilder("--------------------\n");
         for (int i = 0; i < selectionMenu.length; i++) {
             selectionMenuString.append('|');
@@ -45,21 +45,21 @@ public class PlayerSelectionMenu {
         return selectionMenuString.toString();
     }
 
-    public String selectPlayer() throws IOException {
+    private char selectPlayer() throws IOException {
         while (true) {
             System.out.println(getSelectionMenu(cursor.getRow(), cursor.getCol()));
             var cursorValue = cursor.handleInput(selectionMenu[cursor.getRow()][cursor.getCol()]);
             if (cursorValue.isPresent()) {
-                return cursorValue.toString();
+                return cursorValue.get();
             }
         }
     }
 
-    public String[] selectPlayers() throws IOException {
+    public char[] selectPlayers() throws IOException {
         System.out.println("Please select player One: ");
-        String playerOne = selectPlayer();
+        char playerOne = selectPlayer();
         System.out.println("Please select player Two: ");
-        String playerTwo = selectPlayer();
-        return new String[]{playerOne, playerTwo};
+        char playerTwo = selectPlayer();
+        return new char[]{playerOne, playerTwo};
     }
 }
