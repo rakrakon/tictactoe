@@ -15,8 +15,8 @@ public class TurnManager {
         currentPlayer = playerOne;
     }
 
-    public static synchronized TurnManager getInstance(PlayerInterface playerOne, PlayerInterface playerTwo) {
-        if (INSTANCE == null){
+    public static TurnManager getInstance(PlayerInterface playerOne, PlayerInterface playerTwo) {
+        if (INSTANCE == null) {
             INSTANCE = new TurnManager(playerOne, playerTwo);
         }
         return INSTANCE;
