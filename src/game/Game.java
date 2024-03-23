@@ -54,12 +54,13 @@ public class Game {
     private void start() throws IOException {
         System.out.println();
         while (!isGameOver()) {
-            printGame();
-            var cursorValue = gameCursor.handleInput(board.getBoard(gameCursor.getRow(), gameCursor.getCol())); //Read keyboard input
-            if(cursorValue.isPresent()){ //TODO: maybe this needs to be in the player interface? and here the turnManager.playTurn will be called
-                board.setBoardSymbol(new BoardCoordinates(gameCursor.getRow(), gameCursor.getCol()), turnManager.getCurrentPlayerSymbol()); //Place correct symbol on the board
-            }
+            turnManager.playTurn();
         }
-        System.out.println("Congratulations " + board.getWinner().getSymbolChar() + " won the game!!");
+        printGame();
+        Symbol winner = board.getWinner();
+        if (winner == Symbol.EMPTY){
+            System.out.println("No one won it is a tie");
+        }
+        System.out.println("Congratulations " + winner.getSymbolChar() + " won the game!!");
     }
 }
