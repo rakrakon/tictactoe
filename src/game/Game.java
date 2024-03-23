@@ -20,11 +20,14 @@ public class Game {
     }
 
     private PlayerInterface playerStringToInterface(char playerType, Symbol playerSymbol) {
-        if (Player.getName().charAt(0) == playerType) {
-            return new Player(playerSymbol);
+        if (HumanPlayer.getName().charAt(0) == playerType) {
+            return new HumanPlayer(playerSymbol);
         } else if (RandomComputer.getName().charAt(0) == playerType) {
             return new RandomComputer(playerSymbol);
-        } else {
+        } else if (Ai.getName().charAt(0) == playerType){
+            return new Ai(playerSymbol);
+        }
+        else {
             throw new RuntimeException("Not a valid player type");
         }
     }
