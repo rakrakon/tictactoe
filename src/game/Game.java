@@ -62,6 +62,7 @@ public class Game {
                 break;
             }
             System.out.println("Starting new game...");
+            board.resetBoard();
             init();
             start();
         }
