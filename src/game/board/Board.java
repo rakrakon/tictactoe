@@ -114,4 +114,8 @@ public class Board {
     public int getColumnNumber(){
         return board[0].length;
     }
+
+    public Symbol getSymbol(BoardCoordinates coordinates){
+        return board[coordinates.x()][coordinates.y()];
+    }
 }
