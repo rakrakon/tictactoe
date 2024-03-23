@@ -8,6 +8,7 @@ import game.players.PlayerInterface;
 import game.players.RandomComputer;
 
 import java.io.IOException;
+import java.util.Scanner;
 
 public class Game {
     private final Board board;
@@ -45,8 +46,22 @@ public class Game {
     }
 
     public void newGame() throws IOException {
+        Scanner scanner = new Scanner(System.in);
+        printWelcomeScreen();
         init();
         start();
+        while (true) {
+            System.out.println("Play again?(y/n): ");
+            char input = scanner.next().toLowerCase().charAt(0);
+            if (input == 'n') {
+                System.out.println("Goodbye!\n Thank you for playing");
+                break;
+            }
+            System.out.println("Starting new game...");
+            init();
+            start();
+        }
+        scanner.close();
     }
 
     private boolean isGameOver() {
