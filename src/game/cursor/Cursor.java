@@ -5,8 +5,9 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Optional;
 
-public class Cursor { //TODO: needs to be refactored into an interface and make this class the game implementation also create a playerSelection implementation
-    private static Cursor INSTANCE;
+public class Cursor {
+    private static Cursor INSTANCE1;
+    private static Cursor INSTANCE2;
     private int row;
     private int col;
     private final int numRows;
@@ -20,11 +21,22 @@ public class Cursor { //TODO: needs to be refactored into an interface and make 
         col = 0;
     }
 
-    public static Cursor getINSTANCE(int numRows, int numCols) {
-        if (INSTANCE == null){
-            INSTANCE = new Cursor(numRows, numCols);
+    public static Cursor getINSTANCE2(int numRows, int numCols) {
+        if (INSTANCE2 == null){
+            INSTANCE2 = new Cursor(numRows, numCols);
         }
-        return INSTANCE;
+        return INSTANCE2;
+    }
+
+    public static Cursor getINSTANCE2(){
+        return INSTANCE2;
+    }
+
+    public static Cursor getINSTANCE1(int numRows, int numCols) {
+        if (INSTANCE1 == null){
+            INSTANCE1 = new Cursor(numRows, numCols);
+        }
+        return INSTANCE1;
     }
 
     public int getRow() {
