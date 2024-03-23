@@ -64,10 +64,7 @@ public class Cursor {
         this.boardString = boardString;
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         char input = (char) reader.read();
-        // up
-        // down
-        // right
-        // left
+
         return switch (input) {
             case 'w' -> {
                 move(0, -1); // up
