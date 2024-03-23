@@ -1,7 +1,8 @@
 package game;
 
-import game.board.Symbol;
 import game.players.PlayerInterface;
+
+import java.io.IOException;
 
 public class TurnManager {
     private static TurnManager INSTANCE;
