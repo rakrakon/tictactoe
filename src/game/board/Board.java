@@ -106,4 +106,8 @@ public class Board {
         boardString.append("----------------\n");
         return boardString.toString();
     }
+
+    public int getRowNumber(){
+        return board.length;
+    }
 }
