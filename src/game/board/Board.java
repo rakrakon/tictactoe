@@ -25,7 +25,7 @@ public class Board {
         return board;
     }
 
-    public void setBoardSymbol(BoardCoordinates coordinates, Symbol symbol) {
+    public void setSymbol(BoardCoordinates coordinates, Symbol symbol) {
         board[coordinates.x()][coordinates.y()] = symbol;
     }
 
