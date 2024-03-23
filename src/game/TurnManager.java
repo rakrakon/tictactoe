@@ -37,6 +37,11 @@ public class TurnManager {
         }
     }
 
+    public void reset(){
+        currentPlayer = playerOne;
+        INSTANCE = null;
+    }
+
     private void printTurn() {
         System.out.println("It's " + currentPlayer.getPlayerSymbol().getSymbolChar() + "'s turn.");
     }
