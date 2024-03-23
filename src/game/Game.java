@@ -54,7 +54,7 @@ public class Game {
             System.out.println("Play again?(y/n): ");
             char input = scanner.next().toLowerCase().charAt(0);
             if (input == 'n') {
-                System.out.println("Goodbye!\n Thank you for playing");
+                System.out.println("Thank you for playing\nGoodbye!");
                 break;
             }
             System.out.println("Starting new game...");
