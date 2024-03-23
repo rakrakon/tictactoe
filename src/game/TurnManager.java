@@ -5,8 +5,8 @@ import game.players.PlayerInterface;
 
 public class TurnManager {
     private static TurnManager INSTANCE;
-    private PlayerInterface playerOne;
-    private PlayerInterface playerTwo;
+    private final PlayerInterface playerOne;
+    private final PlayerInterface playerTwo;
     private PlayerInterface currentPlayer;
 
     private TurnManager(PlayerInterface playerOne, PlayerInterface playerTwo){
