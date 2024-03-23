@@ -63,6 +63,7 @@ public class Game {
             }
             System.out.println("Starting new game...");
             board.resetBoard();
+            turnManager.reset();
             init();
             start();
         }
