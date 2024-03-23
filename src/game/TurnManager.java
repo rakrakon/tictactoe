@@ -22,7 +22,7 @@ public class TurnManager {
         return INSTANCE;
     }
 
-    public void playTurn() {
+    public void playTurn() throws IOException {
         printTurn(); // Print whose turn it is
         currentPlayer.playTurn(); // Let the current player play their turn
         switchPlayer(); // Switch to the next player
