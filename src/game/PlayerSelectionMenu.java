@@ -1,7 +1,8 @@
 package game;
 
 import game.cursor.Cursor;
-import game.players.Player;
+import game.players.Ai;
+import game.players.HumanPlayer;
 import game.players.RandomComputer;
 
 import java.io.IOException;
@@ -13,8 +14,8 @@ public class PlayerSelectionMenu {
 
 
     private PlayerSelectionMenu() {
-        selectionMenu = new String[][]{{Player.getName()}, {RandomComputer.getName()}};
-        cursor = Cursor.getINSTANCE1(2, 1);
+        selectionMenu = new String[][]{{HumanPlayer.getName()}, {RandomComputer.getName()}, {Ai.getName()}};
+        cursor = Cursor.getINSTANCE1(3, 1);
     }
 
     public static PlayerSelectionMenu getINSTANCE() {
