@@ -28,6 +28,12 @@ public class Game {
         }
     }
 
+    private void printWelcomeScreen() {
+        System.out.println("Welcome to TicTacToe game");
+        System.out.println("You can move the cursor by typing ASWD followed by enter");
+        System.out.println("If you only press enter the menu will select the item\n");
+    }
+
     private void init() throws IOException {
         PlayerSelectionMenu playerSelectionMenu = PlayerSelectionMenu.getINSTANCE();
         char[] selectedPlayers = playerSelectionMenu.selectPlayers();
