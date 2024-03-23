@@ -11,10 +11,10 @@ import java.util.stream.IntStream;
 
 public class RandomComputer implements PlayerInterface{
     private final Random random = new Random();
-    private final Symbol playerType;
+    private final Symbol playerSymbol;
 
-    public RandomComputer(Symbol playerType){
-        this.playerType = playerType;
+    public RandomComputer(Symbol playerSymbol){
+        this.playerSymbol = playerSymbol;
     }
 
     @Override
@@ -31,7 +31,7 @@ public class RandomComputer implements PlayerInterface{
                         .forEach(j -> emptyLocations.add(new int[]{i, j}))); //add the indexes to a list of int arrays
 
         int[] randCoordinates = emptyLocations.get(random.nextInt(emptyLocations.toArray().length));
-        board.setBoardSymbol(new BoardCoordinates(randCoordinates[0], randCoordinates[1]), playerType);
+        board.setSymbol(new BoardCoordinates(randCoordinates[0], randCoordinates[1]), playerSymbol);
         try {
             Thread.sleep(100);
         } catch (Exception ignored) {
@@ -45,6 +45,6 @@ public class RandomComputer implements PlayerInterface{
 
     @Override
     public Symbol getPlayerSymbol() {
-        return playerType;
+        return playerSymbol;
     }
 }
