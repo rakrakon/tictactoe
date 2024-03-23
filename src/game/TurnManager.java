@@ -36,7 +36,7 @@ public class TurnManager {
         }
     }
 
-    private void printTurn(){
-        System.out.println("It's " + currentPlayer.toString() + "'s turn.");
+    private void printTurn() {
+        System.out.println("It's " + currentPlayer.getPlayerSymbol().getSymbolChar() + "'s turn.");
     }
 }
