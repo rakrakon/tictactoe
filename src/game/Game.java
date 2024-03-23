@@ -1,30 +1,42 @@
 package game;
 
 import game.board.Board;
-import game.board.BoardCoordinates;
 import game.board.Symbol;
 import game.cursor.Cursor;
+import game.players.Player;
 import game.players.PlayerInterface;
+import game.players.RandomComputer;
 
 import java.io.IOException;
 
 public class Game {
     private final Board board;
-    private final Cursor gameCursor;
+    private Cursor gameCursor;
     private TurnManager turnManager;
-    private PlayerInterface playerOne;
-    private PlayerInterface playerTwo;
 
-    public Game(){
+    public Game() {
         board = Board.getINSTANCE();
-        gameCursor = Cursor.getINSTANCE(3, 3);
     }
 
-    public void gameInit() throws IOException {
-//        turnManager = TurnManager.getInstance(); //TODO: implement logic
+    private PlayerInterface playerStringToInterface(char playerType, Symbol playerSymbol) {
+        if (Player.getName().charAt(0) == playerType) {
+            return new Player(playerSymbol);
+        } else if (RandomComputer.getName().charAt(0) == playerType) {
+            return new RandomComputer(playerSymbol);
+        } else {
+            throw new RuntimeException("Not a valid player type");
+        }
     }
 
-    public void resetGame(){
+    private void init() throws IOException {
+        PlayerSelectionMenu playerSelectionMenu = PlayerSelectionMenu.getINSTANCE();
+        char[] selectedPlayers = playerSelectionMenu.selectPlayers();
+        turnManager = TurnManager.getInstance(
+                playerStringToInterface(selectedPlayers[0], Symbol.X),
+                playerStringToInterface(selectedPlayers[1], Symbol.O)
+        );
+        gameCursor = Cursor.getINSTANCE2(3, 3);
+    }
 
     }
 
