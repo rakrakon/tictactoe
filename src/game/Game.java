@@ -3,7 +3,8 @@ package game;
 import game.board.Board;
 import game.board.Symbol;
 import game.cursor.Cursor;
-import game.players.Player;
+import game.players.Ai;
+import game.players.HumanPlayer;
 import game.players.PlayerInterface;
 import game.players.RandomComputer;
 
@@ -68,7 +69,7 @@ public class Game {
     }
 
     private boolean isGameOver() {
-        return board.isFull() || board.getWinner() != Symbol.EMPTY;
+        return board.isFull() || board.getWinner() != null;
     }
 
     private void printGame() {
