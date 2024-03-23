@@ -110,4 +110,8 @@ public class Board {
     public int getRowNumber(){
         return board.length;
     }
+
+    public int getColumnNumber(){
+        return board[0].length;
+    }
 }
