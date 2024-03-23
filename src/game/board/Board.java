@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class Board {
     private static Board INSTANCE;
-    private Symbol[][] board = new Symbol[3][3];
+    private final Symbol[][] board = new Symbol[3][3];
 
     private Board() {
         resetBoard();
