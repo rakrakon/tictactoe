@@ -9,7 +9,7 @@ public class TurnManager {
     private final PlayerInterface playerTwo;
     private PlayerInterface currentPlayer;
 
-    private TurnManager(PlayerInterface playerOne, PlayerInterface playerTwo){
+    private TurnManager(PlayerInterface playerOne, PlayerInterface playerTwo) {
         this.playerOne = playerOne;
         this.playerTwo = playerTwo;
         currentPlayer = playerOne;
