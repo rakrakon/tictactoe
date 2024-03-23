@@ -51,8 +51,7 @@ public class Game {
         System.out.println(board.getBoard(gameCursor.getRow(), gameCursor.getCol()));
     }
 
-    public void start() throws IOException {
-        resetGame();
+    private void start() throws IOException {
         System.out.println();
         while (!isGameOver()) {
             printGame();
