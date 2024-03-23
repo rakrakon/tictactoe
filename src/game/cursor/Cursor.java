@@ -53,7 +53,7 @@ public class Cursor {
     }
 
     /**
-     * @return The value the the cursor is currently pointing on
+     * @return The value the cursor is currently pointing on
      */
     public char getCursorPointedValue(){
         StringBuilder builder = new StringBuilder(boardString);
