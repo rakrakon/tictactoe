@@ -15,22 +15,11 @@ public class Game {
     private final Board board;
     private Cursor gameCursor;
     private TurnManager turnManager;
+    private PlayerFactory playerFactory;
 
     public Game() {
         board = Board.getINSTANCE();
-    }
-
-    private PlayerInterface playerStringToInterface(char playerType, Symbol playerSymbol) {
-        if (HumanPlayer.getName().charAt(0) == playerType) {
-            return new HumanPlayer(playerSymbol);
-        } else if (RandomComputer.getName().charAt(0) == playerType) {
-            return new RandomComputer(playerSymbol);
-        } else if (Ai.getName().charAt(0) == playerType){
-            return new Ai(playerSymbol);
-        }
-        else {
-            throw new RuntimeException("Not a valid player type");
-        }
+        playerFactory = new PlayerFactory();
     }
 
     private void printWelcomeScreen() {
@@ -43,8 +32,8 @@ public class Game {
         PlayerSelectionMenu playerSelectionMenu = PlayerSelectionMenu.getINSTANCE();
         char[] selectedPlayers = playerSelectionMenu.selectPlayers();
         turnManager = TurnManager.getInstance(
-                playerStringToInterface(selectedPlayers[0], Symbol.X),
-                playerStringToInterface(selectedPlayers[1], Symbol.O)
+                playerFactory.playerStringToInterface(selectedPlayers[0], Symbol.X),
+                playerFactory.playerStringToInterface(selectedPlayers[1], Symbol.O)
         );
         gameCursor = Cursor.getINSTANCE2(3, 3);
     }
