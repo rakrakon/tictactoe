@@ -15,7 +15,7 @@ public class Game {
     private final Board board;
     private Cursor gameCursor;
     private TurnManager turnManager;
-    private PlayerFactory playerFactory;
+    private final PlayerFactory playerFactory;
 
     public Game() {
         board = Board.getINSTANCE();
